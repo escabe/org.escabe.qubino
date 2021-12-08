@@ -1,0 +1,9 @@
+{
+  "type": "number",
+  "title": { "en": "Input Fraction" },
+  "uiComponent": "sensor",
+  "getable": true,
+  "setable": false,
+  "units": { "en": "" },
+  "icon": "/assets/percent.svg"
+}

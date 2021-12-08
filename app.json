@@ -1,0 +1,676 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "org.escabe.qubino",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "EscAbe Qubino"
+  },
+  "description": {
+    "en": "Adds specific features for specific Qubino devices."
+  },
+  "category": [
+    "climate"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Martijn Aben",
+    "email": "martijn.aben@gmail.com"
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Flush Dimmer 0-10V with 0-10 V General Purpose Sensor"
+      },
+      "class": "other",
+      "capabilities": [
+        "dim",
+        "measure_voltage",
+        "measure_input_fraction"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
+      "images": {
+        "small": "/drivers/zmnhvd1-5/assets/images/small.png",
+        "large": "/drivers/zmnhvd1-5/assets/images/large.png",
+        "xlarge": "/drivers/zmnhvd1-5/assets/images/xlarge.png"
+      },
+      "zwave": {
+        "manufacturerId": 345,
+        "productTypeId": [
+          1
+        ],
+        "productId": [
+          83
+        ],
+        "zwaveAllianceProductId": 2196,
+        "associationGroups": [
+          1
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Z-Wave Plus Lifeline"
+            }
+          }
+        },
+        "defaultConfiguration": [
+          {
+            "id": 1,
+            "size": 1,
+            "value": 5
+          }
+        ]
+      },
+      "id": "zmnhvd1-5",
+      "settings": [
+        {
+          "id": "1",
+          "value": "0",
+          "label": {
+            "en": "Input 1 switch type"
+          },
+          "hint": {
+            "en": "By this parameter the user can set input based on device type (switch, potentiometer, 0-10V sensor,..). \r\n\r\nNOTE: After parameter change to value 3, 4 or 5 first exclude module (without setting parameters to default value) then wait at least 30s and then re include the module!\r\n"
+          },
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Default value - Mono- stable switch type (push button) – button quick press turns between previous set dimmer value and zero)"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Bi-stable switch type "
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Potentiometer (Flush Dimmer 0-10V  is using set value the last received from potentiometer or from z-wave controller)"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "0-10V Temperature sensor (regulated output)"
+              }
+            },
+            {
+              "id": "4",
+              "label": {
+                "en": "0-10V Illumination sensor (regulated output)"
+              }
+            },
+            {
+              "id": "5",
+              "label": {
+                "en": "0-10V General purpose sensor (regulated output)"
+              }
+            }
+          ],
+          "type": "dropdown"
+        },
+        {
+          "id": "10",
+          "value": "255",
+          "label": {
+            "en": "Activate / deactivate functions ALL ON / ALL OFF "
+          },
+          "hint": {
+            "en": "Flush Dimmer 0-10V module responds to commands ALL ON / ALL OFF that may be sent by the main controller or by other controller belonging to the system.\r\n"
+          },
+          "zwave": {
+            "index": 10,
+            "size": 2
+          },
+          "values": [
+            {
+              "id": "255",
+              "label": {
+                "en": "Default value - ALL ON active, ALL OFF active"
+              }
+            },
+            {
+              "id": "0",
+              "label": {
+                "en": "ALL ON is not active, ALL OFF is not active"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "ALL ON is not active, ALL OFF active"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "ALL ON active, ALL OFF is not active"
+              }
+            }
+          ],
+          "type": "dropdown"
+        },
+        {
+          "id": "11",
+          "value": false,
+          "label": {
+            "en": "Automatic turning off output after set time "
+          },
+          "hint": {
+            "en": "Turns off the output after set time. "
+          },
+          "zwave": {
+            "index": 11,
+            "size": 2
+          },
+          "type": "checkbox"
+        },
+        {
+          "id": "110",
+          "value": "32536",
+          "label": {
+            "en": "Temperature sensor offset settings"
+          },
+          "hint": {
+            "en": "Set value is added or subtracted to actual measured value by sensor.  \r\n\r\n\r\n"
+          },
+          "zwave": {
+            "index": 110,
+            "size": 2
+          },
+          "values": [
+            {
+              "id": "32536",
+              "label": {
+                "en": "Default value - offset is 0.0 degrees celsius"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Value from 0.1 degrees celsius to 10.0 degrees celsius is added to actual measured temperature "
+              }
+            },
+            {
+              "id": "1001",
+              "label": {
+                "en": "Value from -0.1 degrees celsius to -10.0 degrees celsius is subtracted to actual measured temperature"
+              }
+            }
+          ],
+          "type": "dropdown"
+        },
+        {
+          "id": "12",
+          "value": false,
+          "label": {
+            "en": "Automatic turning on output after set time "
+          },
+          "hint": {
+            "en": "Turns on the output after set time."
+          },
+          "zwave": {
+            "index": 12,
+            "size": 2
+          },
+          "type": "checkbox"
+        },
+        {
+          "id": "120",
+          "value": "5",
+          "label": {
+            "en": "Digital temperature sensor reporting"
+          },
+          "hint": {
+            "en": "Digital temperature sensor reporting\r\nIf digital temperature sensor is connected, module reports measured temperature on temperature change defined by this parameter. \r\n\r\nAvailable configuration parameters (data type is 1 Byte DEC):\r\n•\tdefault value 5 = 0,5°C change\r\n•\t0 - Reporting disabled\r\n•\t1 - 127 = 0,1°C - 12,7°C, step is 0,1°C\r\n"
+          },
+          "zwave": {
+            "index": 120,
+            "size": 1
+          },
+          "values": [
+            {
+              "id": "5",
+              "label": {
+                "en": "Default value = 0,5 degrees celsius change"
+              }
+            },
+            {
+              "id": "0",
+              "label": {
+                "en": "Reporting disabled"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "0,1 degrees celsius - 12,7 degrees celsius, step is 0,1 degrees celsius"
+              }
+            }
+          ],
+          "type": "dropdown"
+        },
+        {
+          "id": "140",
+          "value": "5",
+          "label": {
+            "en": "Input I1 Sensor reporting"
+          },
+          "hint": {
+            "en": "Input I1 Sensor reporting\r\nIf analogue sensor is connected, module reports measured value on change defined by this parameter. \r\n\r\n"
+          },
+          "zwave": {
+            "index": 140,
+            "size": 2
+          },
+          "values": [
+            {
+              "id": "5",
+              "label": {
+                "en": "Default value = 0,5 change"
+              }
+            },
+            {
+              "id": "0",
+              "label": {
+                "en": "Reporting disabled"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "= 0,1 - 1000 step is 0,1"
+              }
+            }
+          ],
+          "type": "dropdown"
+        },
+        {
+          "id": "141",
+          "value": 5,
+          "label": {
+            "en": " Input I1 0-10V reporting threshold"
+          },
+          "hint": {
+            "en": "Parameter is associated with Association group No. 2. Below this value, the Association No. 2 will report Basic Set 0xFF and above this value will report Basic Set 0xFF. Basic Set is reported only, when the input value changes for more than 10% (1V). \r\n\r\n\r\n"
+          },
+          "zwave": {
+            "index": 141,
+            "size": 1
+          },
+          "attr": {
+            "min": 5,
+            "max": 5
+          },
+          "type": "number"
+        },
+        {
+          "id": "143",
+          "value": "0",
+          "label": {
+            "en": "Minimum sensor range value"
+          },
+          "hint": {
+            "en": "Value that must correspond to minimum sensor range value. Valid only if parameter 1 is set to values 3, 4 or 5). \r\n\r\nAvailable configuration parameters (data type is 2 Byte DEC):\r\n•\tdefault value 0 = 0.0°C / 0Lux / 0.0%rh\r\n•\t0 - 10000 – value from 0 to 1000  (resolution 0,1)\r\n•\t10001 – 20000 – value from -0,1 to  -1000  (resolution 0,1)\r\nNOTE: Minimum value must not be higher than maximum value!\r\n"
+          },
+          "zwave": {
+            "index": 143,
+            "size": 2
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Default value 0 = 0.0 degrees celsius / 0Lux / 0.0%rh"
+              }
+            },
+            {
+              "id": "0",
+              "label": {
+                "en": "Value from 0 to 1000  (resolution 0,1)"
+              }
+            },
+            {
+              "id": "10001",
+              "label": {
+                "en": "Value from -0,1 to  -1000  (resolution 0,1)alue from -0,1 to  -1000  (resolution 0,1)"
+              }
+            }
+          ],
+          "type": "dropdown"
+        },
+        {
+          "id": "144",
+          "value": "1000",
+          "label": {
+            "en": "Maximum sensor range value"
+          },
+          "hint": {
+            "en": "Value that must correspond to maximum sensor range value. Valid only if parameter 1 is set to values 3, 4 or 5). \r\n\r\nNOTE: Maximum value must not be lower than minimum value!\r\n"
+          },
+          "zwave": {
+            "index": 144,
+            "size": 2
+          },
+          "values": [
+            {
+              "id": "1000",
+              "label": {
+                "en": "Default value - 1000 = 100.0 degrees celsius / 100Lux / 100%rh"
+              }
+            },
+            {
+              "id": "0",
+              "label": {
+                "en": "Value from 0 to 1000  (resolution 0,1)"
+              }
+            },
+            {
+              "id": "10001",
+              "label": {
+                "en": "Value from -0,1 to  -1000  (resolution 0,1)"
+              }
+            }
+          ],
+          "type": "dropdown"
+        },
+        {
+          "id": "21",
+          "value": false,
+          "label": {
+            "en": "Enable/Disable Double click function"
+          },
+          "hint": {
+            "en": "If Double click function is enabled, a fast double click on the push button will set dimming power at maximum dimming value. \r\n\r\nValid only if input is set as mono-stable (push button).\r\n"
+          },
+          "zwave": {
+            "index": 21,
+            "size": 1
+          },
+          "type": "checkbox"
+        },
+        {
+          "id": "250",
+          "value": false,
+          "label": {
+            "en": "Unsecure / Secure Inclusion"
+          },
+          "hint": {
+            "en": "A Flush dimmer supports secure and unsecure inclusion. Even if the controller does not support security command classes, a dimmer could be included as unsecure and keep all the functionality. \r\n"
+          },
+          "zwave": {
+            "index": 250,
+            "size": 1
+          },
+          "type": "checkbox"
+        },
+        {
+          "id": "30",
+          "value": false,
+          "label": {
+            "en": "Saving the state of the device after a power failure"
+          },
+          "hint": {
+            "en": "Based on the parameter settings the stores/does not store the last value of the output after power failure. "
+          },
+          "zwave": {
+            "index": 30,
+            "size": 1
+          },
+          "type": "checkbox"
+        },
+        {
+          "id": "52",
+          "value": false,
+          "label": {
+            "en": "Auto or manual selection"
+          },
+          "hint": {
+            "en": "This parameter is influencing on the software only when the value of parameter number 1 is set to value 3, 4 or 5. \r\n\r\nIn manual mode regulation (how the input influence on output) is disabled.\r\n"
+          },
+          "zwave": {
+            "index": 52,
+            "size": 1
+          },
+          "type": "checkbox"
+        },
+        {
+          "id": "53",
+          "value": false,
+          "label": {
+            "en": "PID value inside deadband"
+          },
+          "hint": {
+            "en": "NOTE: When ZERO PID inside deadband is forced to zero. LASTVALUE means that PID remains on same level as was before entering into deadband.\r\n"
+          },
+          "zwave": {
+            "index": 53,
+            "size": 1
+          },
+          "type": "checkbox"
+        },
+        {
+          "id": "54",
+          "value": true,
+          "label": {
+            "en": "PID deadband"
+          },
+          "hint": {
+            "en": "NOTE: This parameter defines the zone where PID is not active. If the temperature difference between actual and setpoint is bigger than PID deadband, then the PID will start to regulate the system, otherwise the PID is zero or fixed.\r\n"
+          },
+          "zwave": {
+            "index": 54,
+            "size": 1
+          },
+          "type": "checkbox"
+        },
+        {
+          "id": "55",
+          "value": 5,
+          "label": {
+            "en": "Integral sampling time"
+          },
+          "hint": {
+            "en": "Parameter defines the time between samples. On each sample the controller capture difference between SP-act.\r\n"
+          },
+          "zwave": {
+            "index": 55,
+            "size": 1
+          },
+          "attr": {
+            "min": 5,
+            "max": 5
+          },
+          "type": "number"
+        },
+        {
+          "id": "56",
+          "value": 100,
+          "label": {
+            "en": "P parameter"
+          },
+          "hint": {
+            "en": "The error is multiplied by a negative (for reverse action) proportional constant P, and added to the current output. P represents the band over which a controller's output is proportional to the error of the system. E.g. for a heater, a controller with a proportional band of 10 deg C and a setpoint of 100 deg C would have an output of 100% up to 90 deg C, 50% at 95 Deg C and 10% at 99 deg C. If the temperature overshoots the setpoint value, the heating power would be cut back further. Proportional only control can provide a stable process temperature but there will always be an error between the required setpoint and the actual process temperature. \r\n"
+          },
+          "zwave": {
+            "index": 56,
+            "size": 2
+          },
+          "attr": {
+            "min": 100,
+            "max": 100
+          },
+          "type": "number"
+        },
+        {
+          "id": "57",
+          "value": true,
+          "label": {
+            "en": "I parameter"
+          },
+          "hint": {
+            "en": "The error is integrated (averaged) over a period of time, and then multiplied by a constant I, and added to the current control output. I represents the steady state error of the system and will remove setpoint / measured value errors. For many applications Proportional + Integral control will be satisfactory with good stability and at the desired setpoint."
+          },
+          "zwave": {
+            "index": 57,
+            "size": 2
+          },
+          "type": "checkbox"
+        },
+        {
+          "id": "58",
+          "value": true,
+          "label": {
+            "en": "D parameter"
+          },
+          "hint": {
+            "en": "The rate of change of the error is calculated with respect to time, multiplied by another constant D, and added to the output. The derivative term is used to determine a controller's response to a change or disturbance of the process temperature (e.g. opening\r\nan oven door). The larger the derivative term, the more rapidly the controller will respond to changes in the\r\nprocess value.\r\n"
+          },
+          "zwave": {
+            "index": 58,
+            "size": 2
+          },
+          "type": "checkbox"
+        },
+        {
+          "id": "60",
+          "value": true,
+          "label": {
+            "en": "Minimum dimming value"
+          },
+          "hint": {
+            "en": "NOTE: The minimum level may not be higher than the maximum level! 1% min. dimming value is defined by Z-Wave multilevel device class. When the switch type is selected as Bi-stable, it is not possible to dim the value between min and max. If Switch_multilevel_set is set to the value “0”, the output is turned OFF. If Switch_multilevel_set is set to the value “1”, the output is set to the minimum diming value.\r\n"
+          },
+          "zwave": {
+            "index": 60,
+            "size": 1
+          },
+          "type": "checkbox"
+        },
+        {
+          "id": "61",
+          "value": 99,
+          "label": {
+            "en": "Maximum dimming value"
+          },
+          "hint": {
+            "en": "NOTE: The maximum level may not be lower than the minimum level! 99% max. dimming value is defined by Z-Wave multilevel device class. When the switch type is selected as Bi-stable, it is not possible to dim the value between min and max.\r\n"
+          },
+          "zwave": {
+            "index": 61,
+            "size": 1
+          },
+          "attr": {
+            "min": 99,
+            "max": 99
+          },
+          "type": "number"
+        },
+        {
+          "id": "65",
+          "value": 100,
+          "label": {
+            "en": "Dimming time (soft on/off)"
+          },
+          "hint": {
+            "en": "Set value means time of moving the Flush Dimmer 0-10V between min. and max. dimming values by short press of push button I1 or controlled through UI (BasicSet).\r\n"
+          },
+          "zwave": {
+            "index": 65,
+            "size": 2
+          },
+          "attr": {
+            "min": 100,
+            "max": 100
+          },
+          "type": "number"
+        },
+        {
+          "id": "66",
+          "value": 3,
+          "label": {
+            "en": "Dimming time when key pressed"
+          },
+          "hint": {
+            "en": "Time of moving the Flush Dimmer 0-10V between min. and max dimming values by continues hold of push button I1 or associated device. \r\n"
+          },
+          "zwave": {
+            "index": 66,
+            "size": 2
+          },
+          "attr": {
+            "min": 3,
+            "max": 3
+          },
+          "type": "number"
+        },
+        {
+          "id": "67",
+          "value": false,
+          "label": {
+            "en": "Ignore start level"
+          },
+          "hint": {
+            "en": "This parameter is used with association group 3.\r\nA receiving device SHOULD respect the start level if the Ignore Start Level bit is 0. A receiving device MUST ignore the start level if the Ignore Start Level bit is 1. \r\n\r\n\r\n"
+          },
+          "zwave": {
+            "index": 67,
+            "size": 1
+          },
+          "type": "checkbox"
+        },
+        {
+          "id": "68",
+          "value": false,
+          "label": {
+            "en": "Dimming duration"
+          },
+          "hint": {
+            "en": "This parameter is used with association group 3.\r\nThe Duration field MUST specify the time that the transition should take from the current value to the new target value. A supporting device SHOULD respect the specified Duration value. \r\n\r\n\r\n"
+          },
+          "zwave": {
+            "index": 68,
+            "size": 1
+          },
+          "type": "checkbox"
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "measure_input_fraction": {
+      "type": "number",
+      "title": {
+        "en": "Input Fraction"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": ""
+      },
+      "icon": "/assets/percent.svg"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": {
+    "en": "Flush Dimmer 0-10V with 0-10 V General Purpose Sensor"
+  },
+  "class": "other",
+  "capabilities": [
+    "dim",
+    "measure_voltage",
+    "measure_input_fraction"
+  ],
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zwave"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "zwave": {
+    "manufacturerId": 345,
+    "productTypeId": [
+      1
+    ],
+    "productId": [
+      83
+    ],
+    "zwaveAllianceProductId": 2196,
+    "associationGroups": [
+      1
+    ],
+    "associationGroupsOptions": {
+      "1": {
+        "hint": {
+          "en": "Z-Wave Plus Lifeline"
+        }
+      }
+    },
+    "defaultConfiguration": [{
+      "id": 1,
+      "size": 1,
+      "value": 5
+    }]
+  }
+}
